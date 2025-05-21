@@ -264,4 +264,4 @@ Please change the parent <Route path="${C}"> to <Route path="${C==="/"?"*":`${C}
         .animate-blink {
           animation: blink 0.75s infinite;
         }
-      `))}function E3(){return E.createElement(E.Fragment,null,E.createElement("div",null,E.createElement(OS,null,E.createElement(rS,null,E.createElement(ey,{path:"/",element:E.createElement(x3,null)})))))}pb.createRoot(document.getElementById("root")).render(E.createElement(w.StrictMode,null,E.createElement(E3,null)));
+      `))}function E3(){return E.createElement(E.Fragment,null,E.createElement("div",null,E.createElement(OS,{basename:"/Portfolio-V2"},E.createElement(rS,null,E.createElement(ey,{path:"/",element:E.createElement(x3,null)})))))}pb.createRoot(document.getElementById("root")).render(E.createElement(w.StrictMode,null,E.createElement(E3,null)));
