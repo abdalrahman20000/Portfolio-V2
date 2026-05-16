@@ -25,6 +25,7 @@ import {
   EyeOff,
   Globe,
 } from "lucide-react";
+//:)
 
 const heroBackgroundImage = "/heroimage.png";
 
@@ -283,14 +284,20 @@ const Navigation = React.memo(({ activeSection }) => {
             className="text-lg md:text-xl font-bold text-white flex items-center group"
             whileHover={{ scale: 1.05 }}
           >
-            <span className="text-blue-400 mr-1 md:mr-2 group-hover:rotate-45 transition-all duration-300">{"<"}</span>
+            <span className="text-blue-400 mr-1 md:mr-2 group-hover:rotate-45 transition-all duration-300">
+              {"<"}
+            </span>
             <span className="group-hover:text-blue-400 transition-colors duration-300 relative text-sm md:text-base">
               {"Abd-alrahman"}
               <span className="hidden sm:inline"> Mansour Ata</span>
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 group-hover:w-full transition-all duration-500"></span>
             </span>
-            <span className="text-blue-400 mx-1 group-hover:-rotate-45 transition-all duration-300">{"/"}</span>
-            <span className="text-blue-400 group-hover:translate-x-1 transition-all duration-300">{">"}</span>
+            <span className="text-blue-400 mx-1 group-hover:-rotate-45 transition-all duration-300">
+              {"/"}
+            </span>
+            <span className="text-blue-400 group-hover:translate-x-1 transition-all duration-300">
+              {">"}
+            </span>
           </motion.h1>
 
           {/* Desktop nav */}
@@ -320,7 +327,9 @@ const Navigation = React.memo(({ activeSection }) => {
           >
             <motion.span
               className="block w-6 h-0.5 bg-blue-200"
-              animate={mobileMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+              animate={
+                mobileMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }
+              }
               transition={{ duration: 0.2 }}
             />
             <motion.span
@@ -330,7 +339,9 @@ const Navigation = React.memo(({ activeSection }) => {
             />
             <motion.span
               className="block w-6 h-0.5 bg-blue-200"
-              animate={mobileMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+              animate={
+                mobileMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }
+              }
               transition={{ duration: 0.2 }}
             />
           </button>
@@ -404,7 +415,10 @@ const TypingAnimation = React.memo(({ text }) => {
           setTypingText(text.substring(0, state.index));
           timer = setTimeout(tick, 150);
         } else {
-          timer = setTimeout(() => { state.isTyping = false; tick(); }, 3000);
+          timer = setTimeout(() => {
+            state.isTyping = false;
+            tick();
+          }, 3000);
         }
       } else {
         if (state.index > 0) {
@@ -412,7 +426,10 @@ const TypingAnimation = React.memo(({ text }) => {
           setTypingText(text.substring(0, state.index));
           timer = setTimeout(tick, 75);
         } else {
-          timer = setTimeout(() => { state.isTyping = true; tick(); }, 1000);
+          timer = setTimeout(() => {
+            state.isTyping = true;
+            tick();
+          }, 1000);
         }
       }
     };
@@ -532,7 +549,9 @@ const Hero = React.memo(({ developer }) => {
                   transition={{ duration: 0.5, delay: 0.9 }}
                 >
                   <span className="md:hidden">
-                    Full-Stack Developer skilled in JavaScript, React, Node.js and Oracle technologies. Currently at Orange HQ. Seeking an entry-level position.
+                    Full-Stack Developer skilled in JavaScript, React, Node.js
+                    and Oracle technologies. Currently at Orange HQ. Seeking an
+                    entry-level position.
                   </span>
                   <span className="hidden md:inline">
                     {developer.description}
@@ -685,7 +704,7 @@ const Skills = React.memo(({ developer }) => {
                   {skill}
                 </span>
               ))}
-              </div>
+            </div>
           </motion.div>
 
           {/* Development Tools */}
@@ -707,7 +726,7 @@ const Skills = React.memo(({ developer }) => {
                   {skill}
                 </span>
               ))}
-              </div>
+            </div>
           </motion.div>
         </motion.div>
 
@@ -737,7 +756,7 @@ const Skills = React.memo(({ developer }) => {
                   {skill}
                 </span>
               ))}
-              </div>
+            </div>
           </motion.div>
 
           {/* Other Skills */}
@@ -759,7 +778,7 @@ const Skills = React.memo(({ developer }) => {
                   {skill}
                 </span>
               ))}
-              </div>
+            </div>
           </motion.div>
 
           {/* Soft Skills */}
@@ -782,7 +801,7 @@ const Skills = React.memo(({ developer }) => {
                   {skill}
                 </span>
               ))}
-              </div>
+            </div>
           </motion.div>
         </motion.div>
       </div>
@@ -818,7 +837,7 @@ const Projects = ({ developer }) => {
     setIsAnimating(true);
     setDirection("right");
     setCurrentIndex((prevIndex) =>
-      prevIndex === developer.projects.length - 1 ? 0 : prevIndex + 1
+      prevIndex === developer.projects.length - 1 ? 0 : prevIndex + 1,
     );
     setTimeout(() => setIsAnimating(false), 300); // Faster animation completion
   }, [isAnimating, developer.projects.length]);
@@ -829,7 +848,7 @@ const Projects = ({ developer }) => {
     setIsAnimating(true);
     setDirection("left");
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? developer.projects.length - 1 : prevIndex - 1
+      prevIndex === 0 ? developer.projects.length - 1 : prevIndex - 1,
     );
     setTimeout(() => setIsAnimating(false), 300); // Faster animation completion
   }, [isAnimating, developer.projects.length]);
@@ -843,7 +862,7 @@ const Projects = ({ developer }) => {
       setCurrentIndex(index);
       setTimeout(() => setIsAnimating(false), 300); // Faster animation completion
     },
-    [isAnimating, currentIndex]
+    [isAnimating, currentIndex],
   );
 
   // Setup IntersectionObserver for scroll animations
@@ -858,7 +877,7 @@ const Projects = ({ developer }) => {
           }, 300);
         }
       },
-      { threshold: 0.25 } // Trigger when 25% of element is visible
+      { threshold: 0.25 }, // Trigger when 25% of element is visible
     );
 
     if (projectsRef.current) {
@@ -891,7 +910,7 @@ const Projects = ({ developer }) => {
           return "card-hidden";
       }
     },
-    [visibleCards]
+    [visibleCards],
   );
 
   // Animation variants with optimized performance
@@ -1001,7 +1020,7 @@ const Projects = ({ developer }) => {
         <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
       </svg>
     ),
-    []
+    [],
   );
 
   return (
@@ -1045,9 +1064,21 @@ const Projects = ({ developer }) => {
         >
           {isInView && !isLoaded && (
             <div className="flex space-x-2">
-              <motion.div className="w-4 h-4 bg-blue-500 rounded-full" animate={{ y: [0, -10, 0] }} transition={{ duration: 0.8, repeat: Infinity, delay: 0 }} />
-              <motion.div className="w-4 h-4 bg-blue-400 rounded-full" animate={{ y: [0, -10, 0] }} transition={{ duration: 0.8, repeat: Infinity, delay: 0.15 }} />
-              <motion.div className="w-4 h-4 bg-blue-300 rounded-full" animate={{ y: [0, -10, 0] }} transition={{ duration: 0.8, repeat: Infinity, delay: 0.3 }} />
+              <motion.div
+                className="w-4 h-4 bg-blue-500 rounded-full"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 0.8, repeat: Infinity, delay: 0 }}
+              />
+              <motion.div
+                className="w-4 h-4 bg-blue-400 rounded-full"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 0.8, repeat: Infinity, delay: 0.15 }}
+              />
+              <motion.div
+                className="w-4 h-4 bg-blue-300 rounded-full"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 0.8, repeat: Infinity, delay: 0.3 }}
+              />
             </div>
           )}
         </motion.div>
@@ -1062,41 +1093,122 @@ const Projects = ({ developer }) => {
           <div className="md:hidden">
             {/* Fixed-height container — card is absolutely positioned inside so
                 AnimatePresence enter/exit never affects document flow or page height */}
-            <div className="relative mx-auto max-w-sm overflow-hidden" style={{ height: 480 }}>
+            <div
+              className="relative mx-auto max-w-sm overflow-hidden"
+              style={{ height: 480 }}
+            >
               <AnimatePresence mode="popLayout" initial={false}>
                 {isLoaded && (
                   <motion.div
                     key={currentIndex}
-                    initial={{ opacity: 0, x: direction === "right" ? 80 : -80 }}
+                    initial={{
+                      opacity: 0,
+                      x: direction === "right" ? 80 : -80,
+                    }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: direction === "right" ? -80 : 80 }}
                     transition={{ duration: 0.22, ease: "easeInOut" }}
-                    style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0 }}
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                    }}
                   >
                     {(() => {
                       const project = developer.projects[currentIndex];
                       return (
                         <div className="bg-gradient-to-b from-[#060d1f] to-[#0a1628] rounded-xl overflow-hidden shadow-xl flex flex-col h-full border border-blue-900/30">
                           <div className="h-48 shrink-0 overflow-hidden">
-                            <img src={project.image} alt={project.title} className="w-full h-full object-cover" loading="lazy" />
+                            <img
+                              src={project.image}
+                              alt={project.title}
+                              className="w-full h-full object-cover"
+                              loading="lazy"
+                            />
                           </div>
                           <div className="p-5 flex flex-col flex-grow overflow-hidden">
                             <div className="flex items-start justify-between gap-2 mb-3">
-                              <h3 className="text-lg font-semibold text-white leading-tight line-clamp-2">{project.title}</h3>
-                              <span className="bg-gradient-to-r from-blue-600 to-blue-700 text-xs text-white px-2 py-1 rounded-full shrink-0">{project.role}</span>
+                              <h3 className="text-lg font-semibold text-white leading-tight line-clamp-2">
+                                {project.title}
+                              </h3>
+                              <span className="bg-gradient-to-r from-blue-600 to-blue-700 text-xs text-white px-2 py-1 rounded-full shrink-0">
+                                {project.role}
+                              </span>
                             </div>
-                            <p className="text-blue-100/70 text-sm mb-4 line-clamp-3">{project.description}</p>
-                            <div className="flex flex-wrap gap-2 mb-4 overflow-hidden" style={{ maxHeight: 64 }}>
+                            <p className="text-blue-100/70 text-sm mb-4 line-clamp-3">
+                              {project.description}
+                            </p>
+                            <div
+                              className="flex flex-wrap gap-2 mb-4 overflow-hidden"
+                              style={{ maxHeight: 64 }}
+                            >
                               {project.tech.map((tech) => (
-                                <span key={tech} className="bg-blue-900/50 text-blue-300 px-2 py-0.5 rounded text-xs shrink-0 border border-blue-700/30">{tech}</span>
+                                <span
+                                  key={tech}
+                                  className="bg-blue-900/50 text-blue-300 px-2 py-0.5 rounded text-xs shrink-0 border border-blue-700/30"
+                                >
+                                  {tech}
+                                </span>
                               ))}
                             </div>
                             <div className="flex flex-wrap gap-3 mt-auto pt-2 border-t border-blue-900/40">
-                              {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-blue-400 text-sm flex items-center gap-1"><Github size={13} /><span>GitHub</span></a>}
-                              {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 text-sm flex items-center gap-1"><ExternalLink size={13} /><span>Live Demo</span></a>}
-                              {project.videoUrl && <a href={project.videoUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 text-sm flex items-center gap-1"><Video size={13} /><span>Video</span></a>}
-                              {project.linkedin && <a href={project.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 text-sm flex items-center gap-1"><Linkedin size={13} /><span>LinkedIn</span></a>}
-                              {project.pdf && <a href={project.pdf} target="_blank" rel="noopener noreferrer" className="text-blue-400 text-sm flex items-center gap-1"><FileText size={13} /><span>PDF</span></a>}
+                              {project.github && (
+                                <a
+                                  href={project.github}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-400 text-sm flex items-center gap-1"
+                                >
+                                  <Github size={13} />
+                                  <span>GitHub</span>
+                                </a>
+                              )}
+                              {project.liveUrl && (
+                                <a
+                                  href={project.liveUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-400 text-sm flex items-center gap-1"
+                                >
+                                  <ExternalLink size={13} />
+                                  <span>Live Demo</span>
+                                </a>
+                              )}
+                              {project.videoUrl && (
+                                <a
+                                  href={project.videoUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-400 text-sm flex items-center gap-1"
+                                >
+                                  <Video size={13} />
+                                  <span>Video</span>
+                                </a>
+                              )}
+                              {project.linkedin && (
+                                <a
+                                  href={project.linkedin}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-400 text-sm flex items-center gap-1"
+                                >
+                                  <Linkedin size={13} />
+                                  <span>LinkedIn</span>
+                                </a>
+                              )}
+                              {project.pdf && (
+                                <a
+                                  href={project.pdf}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-400 text-sm flex items-center gap-1"
+                                >
+                                  <FileText size={13} />
+                                  <span>PDF</span>
+                                </a>
+                              )}
                             </div>
                           </div>
                         </div>
@@ -1110,8 +1222,24 @@ const Projects = ({ developer }) => {
             {/* Mobile nav buttons: always below at fixed position, never shifts */}
             {isLoaded && (
               <div className="flex items-center justify-between mt-4 px-2">
-                <button onClick={prevSlide} className="bg-gradient-to-br from-blue-600 to-blue-800 hover:from-blue-500 hover:to-blue-700 text-white w-11 h-11 rounded-full flex items-center justify-center shrink-0" aria-label="Previous">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                <button
+                  onClick={prevSlide}
+                  className="bg-gradient-to-br from-blue-600 to-blue-800 hover:from-blue-500 hover:to-blue-700 text-white w-11 h-11 rounded-full flex items-center justify-center shrink-0"
+                  aria-label="Previous"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
                 </button>
 
                 {/* Pagination dots — fixed width so dots expanding never shift buttons */}
@@ -1126,8 +1254,24 @@ const Projects = ({ developer }) => {
                   ))}
                 </div>
 
-                <button onClick={nextSlide} className="bg-gradient-to-br from-blue-600 to-blue-800 hover:from-blue-500 hover:to-blue-700 text-white w-11 h-11 rounded-full flex items-center justify-center shrink-0" aria-label="Next">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                <button
+                  onClick={nextSlide}
+                  className="bg-gradient-to-br from-blue-600 to-blue-800 hover:from-blue-500 hover:to-blue-700 text-white w-11 h-11 rounded-full flex items-center justify-center shrink-0"
+                  aria-label="Next"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
                 </button>
               </div>
             )}
@@ -1149,35 +1293,124 @@ const Projects = ({ developer }) => {
                         animate={getPositionClass(index)}
                         whileHover={
                           getPositionClass(index) === "card-center"
-                            ? { scale: 1.03, boxShadow: "0 20px 30px -10px rgba(37, 99, 235, 0.25)", transition: { duration: 0.2 } }
+                            ? {
+                                scale: 1.03,
+                                boxShadow:
+                                  "0 20px 30px -10px rgba(37, 99, 235, 0.25)",
+                                transition: { duration: 0.2 },
+                              }
                             : {}
                         }
-                        style={{ width: 400, height: 520, transformStyle: "preserve-3d", backfaceVisibility: "hidden", willChange: "transform, opacity" }}
+                        style={{
+                          width: 400,
+                          height: 520,
+                          transformStyle: "preserve-3d",
+                          backfaceVisibility: "hidden",
+                          willChange: "transform, opacity",
+                        }}
                       >
                         <div className="bg-gradient-to-b from-[#060d1f] to-[#0a1628] rounded-xl overflow-hidden shadow-xl flex flex-col h-full border border-blue-900/30">
-                          <motion.div className="bg-blue-950 h-56 shrink-0 overflow-hidden" whileHover={{ scale: 1.05 }} transition={{ duration: 0.3 }}>
-                            <img src={project.image} alt={project.title} className="w-full h-full object-center" loading="lazy" />
+                          <motion.div
+                            className="bg-blue-950 h-56 shrink-0 overflow-hidden"
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <img
+                              src={project.image}
+                              alt={project.title}
+                              className="w-full h-full object-center"
+                              loading="lazy"
+                            />
                           </motion.div>
                           <div className="p-6 flex flex-col flex-grow overflow-hidden">
                             <div className="flex justify-between items-center mb-3">
                               <div className="flex flex-wrap items-center justify-between w-full">
-                                <h3 className="text-xl font-semibold text-white mr-2 line-clamp-1">{project.title}</h3>
-                                <span className="bg-gradient-to-r from-blue-600 to-blue-700 text-xs text-white px-2 py-1 rounded-full mt-1 md:mt-0 shrink-0">{project.role}</span>
+                                <h3 className="text-xl font-semibold text-white mr-2 line-clamp-1">
+                                  {project.title}
+                                </h3>
+                                <span className="bg-gradient-to-r from-blue-600 to-blue-700 text-xs text-white px-2 py-1 rounded-full mt-1 md:mt-0 shrink-0">
+                                  {project.role}
+                                </span>
                               </div>
                             </div>
-                            <p className="text-blue-100/70 text-base mb-5 line-clamp-3">{project.description}</p>
-                            <div className="flex flex-wrap gap-2 mb-5 overflow-hidden" style={{ maxHeight: 72 }}>
+                            <p className="text-blue-100/70 text-base mb-5 line-clamp-3">
+                              {project.description}
+                            </p>
+                            <div
+                              className="flex flex-wrap gap-2 mb-5 overflow-hidden"
+                              style={{ maxHeight: 72 }}
+                            >
                               {project.tech.map((tech) => (
-                                <span key={tech} className="bg-blue-900/50 text-blue-300 px-3 py-1 rounded text-sm hover:bg-blue-700/60 transition-colors shrink-0 border border-blue-700/30">{tech}</span>
+                                <span
+                                  key={tech}
+                                  className="bg-blue-900/50 text-blue-300 px-3 py-1 rounded text-sm hover:bg-blue-700/60 transition-colors shrink-0 border border-blue-700/30"
+                                >
+                                  {tech}
+                                </span>
                               ))}
                             </div>
                             <div className="flex-grow"></div>
                             <div className="flex flex-wrap justify-between items-center mt-auto gap-2">
-                              {project.github && <motion.a href={project.github} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 flex items-center space-x-1" whileHover={{ scale: 1.1 }}><span>GitHub</span><Github size={14} /></motion.a>}
-                              {project.liveUrl && <motion.a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 flex items-center space-x-1" whileHover={{ scale: 1.1 }}><span>Live Demo</span><ExternalLink size={14} /></motion.a>}
-                              {project.videoUrl && <motion.a href={project.videoUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 flex items-center space-x-1" whileHover={{ scale: 1.1 }}><span>Video</span><Video size={14} /></motion.a>}
-                              {project.linkedin && <motion.a href={project.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 flex items-center space-x-1" whileHover={{ scale: 1.1 }}><span>LinkedIn</span><Linkedin size={14} /></motion.a>}
-                              {project.pdf && <motion.a href={project.pdf} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 flex items-center space-x-1" whileHover={{ scale: 1.1 }}><span>PDF</span><FileText size={14} /></motion.a>}
+                              {project.github && (
+                                <motion.a
+                                  href={project.github}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-400 hover:text-blue-300 flex items-center space-x-1"
+                                  whileHover={{ scale: 1.1 }}
+                                >
+                                  <span>GitHub</span>
+                                  <Github size={14} />
+                                </motion.a>
+                              )}
+                              {project.liveUrl && (
+                                <motion.a
+                                  href={project.liveUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-400 hover:text-blue-300 flex items-center space-x-1"
+                                  whileHover={{ scale: 1.1 }}
+                                >
+                                  <span>Live Demo</span>
+                                  <ExternalLink size={14} />
+                                </motion.a>
+                              )}
+                              {project.videoUrl && (
+                                <motion.a
+                                  href={project.videoUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-400 hover:text-blue-300 flex items-center space-x-1"
+                                  whileHover={{ scale: 1.1 }}
+                                >
+                                  <span>Video</span>
+                                  <Video size={14} />
+                                </motion.a>
+                              )}
+                              {project.linkedin && (
+                                <motion.a
+                                  href={project.linkedin}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-400 hover:text-blue-300 flex items-center space-x-1"
+                                  whileHover={{ scale: 1.1 }}
+                                >
+                                  <span>LinkedIn</span>
+                                  <Linkedin size={14} />
+                                </motion.a>
+                              )}
+                              {project.pdf && (
+                                <motion.a
+                                  href={project.pdf}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-400 hover:text-blue-300 flex items-center space-x-1"
+                                  whileHover={{ scale: 1.1 }}
+                                >
+                                  <span>PDF</span>
+                                  <FileText size={14} />
+                                </motion.a>
+                              )}
                             </div>
                           </div>
                         </div>
@@ -1189,20 +1422,74 @@ const Projects = ({ developer }) => {
               {/* Desktop navigation buttons */}
               {isLoaded && (
                 <>
-                  <motion.button onClick={prevSlide} className="absolute left-6 top-1/2 -translate-y-1/2 bg-gradient-to-br from-blue-600 to-blue-800 hover:from-blue-500 hover:to-blue-700 text-white w-12 h-12 rounded-full flex items-center justify-center z-10 shadow-lg shadow-blue-900/50" aria-label="Previous" whileHover={{ scale: 1.1, x: -5 }} whileTap={{ scale: 0.9 }} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                  <motion.button
+                    onClick={prevSlide}
+                    className="absolute left-6 top-1/2 -translate-y-1/2 bg-gradient-to-br from-blue-600 to-blue-800 hover:from-blue-500 hover:to-blue-700 text-white w-12 h-12 rounded-full flex items-center justify-center z-10 shadow-lg shadow-blue-900/50"
+                    aria-label="Previous"
+                    whileHover={{ scale: 1.1, x: -5 }}
+                    whileTap={{ scale: 0.9 }}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
                   </motion.button>
-                  <motion.button onClick={nextSlide} className="absolute right-6 top-1/2 -translate-y-1/2 bg-gradient-to-br from-blue-600 to-blue-800 hover:from-blue-500 hover:to-blue-700 text-white w-12 h-12 rounded-full flex items-center justify-center z-10 shadow-lg shadow-blue-900/50" aria-label="Next" whileHover={{ scale: 1.1, x: 5 }} whileTap={{ scale: 0.9 }} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  <motion.button
+                    onClick={nextSlide}
+                    className="absolute right-6 top-1/2 -translate-y-1/2 bg-gradient-to-br from-blue-600 to-blue-800 hover:from-blue-500 hover:to-blue-700 text-white w-12 h-12 rounded-full flex items-center justify-center z-10 shadow-lg shadow-blue-900/50"
+                    aria-label="Next"
+                    whileHover={{ scale: 1.1, x: 5 }}
+                    whileTap={{ scale: 0.9 }}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
                   </motion.button>
                 </>
               )}
 
               {/* Desktop pagination */}
               {isLoaded && (
-                <motion.div className="flex justify-center mt-8 space-x-2" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }}>
+                <motion.div
+                  className="flex justify-center mt-8 space-x-2"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                >
                   {developer.projects.map((_, index) => (
-                    <motion.button key={index} onClick={() => goToSlide(index)} className={`h-3 rounded-full transition-all duration-300 ${index === currentIndex ? "bg-blue-500 w-10" : "bg-blue-900/60 w-3"}`} aria-label={`Go to slide ${index + 1}`} whileHover={{ scale: 1.3 }} whileTap={{ scale: 0.9 }} />
+                    <motion.button
+                      key={index}
+                      onClick={() => goToSlide(index)}
+                      className={`h-3 rounded-full transition-all duration-300 ${index === currentIndex ? "bg-blue-500 w-10" : "bg-blue-900/60 w-3"}`}
+                      aria-label={`Go to slide ${index + 1}`}
+                      whileHover={{ scale: 1.3 }}
+                      whileTap={{ scale: 0.9 }}
+                    />
                   ))}
                 </motion.div>
               )}
@@ -1213,7 +1500,14 @@ const Projects = ({ developer }) => {
           <motion.div
             className="absolute inset-0 pointer-events-none"
             initial={{ opacity: 0 }}
-            animate={{ opacity: [0.05, 0.1, 0.05], transition: { duration: 5, repeat: Infinity, repeatType: "reverse" } }}
+            animate={{
+              opacity: [0.05, 0.1, 0.05],
+              transition: {
+                duration: 5,
+                repeat: Infinity,
+                repeatType: "reverse",
+              },
+            }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/10 via-purple-800/5 to-indigo-900/10 rounded-3xl"></div>
           </motion.div>
@@ -1695,7 +1989,10 @@ export default function Portfolio() {
         const scrollPosition = y + 100;
         sections.forEach((section) => {
           const top = section.offsetTop;
-          if (scrollPosition >= top && scrollPosition < top + section.offsetHeight) {
+          if (
+            scrollPosition >= top &&
+            scrollPosition < top + section.offsetHeight
+          ) {
             setActiveSection(section.id);
           }
         });
@@ -1718,9 +2015,7 @@ export default function Portfolio() {
   };
 
   return (
-    <div
-      className="bg-[#03070f] text-white min-h-screen"
-    >
+    <div className="bg-[#03070f] text-white min-h-screen">
       <Navigation activeSection={activeSection} />
 
       <Hero developer={developer} />
